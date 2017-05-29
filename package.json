@@ -1,0 +1,46 @@
+{
+  "name": "darse",
+  "version": "1.0.0",
+  "description": "Sistema de factuacion ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "standard",
+    "build": "gulp",
+    "start": "concurrently \"gulp watch\" \"npm run lint && nodemon server\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Ronalses@gitlab.com/Ronalses/darse.git"
+  },
+  "keywords": [
+    "Facturacion",
+    "Nodejs",
+    "Javascript",
+    "Ventas"
+  ],
+  "author": "Suke.io",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/Ronalses/darse/issues"
+  },
+  "homepage": "https://gitlab.com/Ronalses/darse#README",
+  "dependencies": {
+    "empty-element": "^1.0.0",
+    "express": "^4.15.3",
+    "page": "^1.7.1",
+    "pug": "^2.0.0-rc.1",
+    "yo-yo": "^1.4.1"
+  },
+  "devDependencies": {
+    "babelify": "^7.3.0",
+    "browserify": "^14.4.0",
+    "concurrently": "^3.4.0",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "nodemon": "^1.11.0",
+    "standard": "^10.0.2",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.9.0"
+  }
+}
