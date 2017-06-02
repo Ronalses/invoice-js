@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
 
+const apiFake = require('./apiFake')
+
 app.use(express.static('public'))
 app.set('view engine', 'pug')
 app.get('/', function (req, res) {
@@ -23,6 +25,7 @@ app.get('/listaclientes', function (req, res) {
   res.render('index')
 })
 
+app.use('/api', apiFake)
 app.listen(3000, function (err) {
   if (err) return console.log('Hubo un error')
   console.log('Darse Escuchando en el puerto 3000')
