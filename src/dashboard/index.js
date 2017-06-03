@@ -1,6 +1,7 @@
 const page = require('page')
 const empty = require('empty-element')
 const EasyPieChart = require('easy-pie-chart')
+const fetch = require('isomorphic-fetch')
 
 const template = require('./template')
 const dashData = require('./components/dashData')
@@ -31,10 +32,22 @@ function initCirclePercentage () {
 
 // This functon load data for Server
 async function loadData (ctx, next) {
-  dashData.quotation.percent = 50
-  dashData.purchases.percent = 27
-  dashData.clientSupended.percent = 12
-  dashData.issuedInvoices.percent = 63
-  ctx.dashData = dashData
-  next()
+  try {
+    let data = await fetch('/api/dashboard').then(res => res.json())
+    // Charts
+    dashData.quotation.percent = data.quotation
+    dashData.purchases.percent = data.purchases
+    dashData.clientSupended.percent = data.clientSupended
+    dashData.cancellations.percent = data.cancellations
+    // Cards
+    dashData.nodes.total = data.nodes
+    dashData.issuedInvoices.total = data.issuedInvoices
+    dashData.newClients.total = data.newClients
+    dashData.paymentsIssued.total = data.paymentsIssued
+    // Add to context
+    ctx.dashData = dashData
+    next()
+  } catch (err) {
+    console.log(err)
+  }
 }

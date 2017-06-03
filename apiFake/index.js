@@ -10,9 +10,9 @@ router.route('/')
 router.route('/dashboard')
   .get((req, res) => {
     res.status(200).json({
-      quotation: 3,
+      quotation: 39,
       purchases: 20,
-      clientSupended: 102,
+      clientSupended: 62,
       cancellations: 35,
       nodes: 3,
       paymentsIssued: 20,
