@@ -25,6 +25,9 @@
     "url": "https://gitlab.com/Ronalses/darse/issues"
   },
   "homepage": "https://gitlab.com/Ronalses/darse#README",
+  "standard": {
+    "globals": [ "fetch", "componentHandler"]
+  },
   "dependencies": {
     "easy-pie-chart": "^2.1.7",
     "empty-element": "^1.0.0",
