@@ -1,7 +1,6 @@
 const page = require('page')
 const empty = require('empty-element')
 const EasyPieChart = require('easy-pie-chart')
-const fetch = require('isomorphic-fetch')
 
 const template = require('./template')
 const dashData = require('./components/dashData')
