@@ -14,7 +14,7 @@ module.exports = (dashData) => {
           <a href="#" class="mdl-tabs__tab" id='tabData2'>Paso 2</a>
           <a href="#" class="mdl-tabs__tab" id='tabData3'>Paso 3</a>
         </div>
-        <form id="form" onsubmit=${onsubmit} enctype="multipart/form-data" name="myform">
+        <form id="form" onsubmit=${onsubmit} enctype="" name="myform">
           <div class="mdl-tabs__panel is-active" id="data1">
             <div class='mdl-grid formPanel' id="panel1">
               <div class="mdl-textfield mdl-js-textfield mdl-cell--3-col">
@@ -110,11 +110,35 @@ module.exports = (dashData) => {
     document.getElementById(idTab2).classList.add('is-active')
   }
 
-  function onsubmit (ev) {
+  async function onsubmit (ev) {
     ev.preventDefault()
-    console.log(this)
-    let data = new FormData(this)
-    console.log(data)
+    console.log(this.ci.value)
+    let data = {
+      ci: this.ci.value,
+      name: this.name.value,
+      lastname: this.lastname.value,
+      email: this.email.value,
+      address: this.address.value,
+      notes: this.notes.value
+    }
+    // Convert data to JSON
+    data = JSON.stringify(data)
+    // Send data to API
+    let uri = '/api/client'
+    try {
+      let response = await fetch(
+          uri, {
+            method: 'POST',
+            body: data,
+            headers: {
+              'Content-type': 'application/json'
+            }
+          }).then(res => res.json())
+
+      console.log(response)
+    } catch (error) {
+      console.log('Error :', error)
+    }
   }
 
   function click (ev) {

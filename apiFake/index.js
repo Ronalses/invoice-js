@@ -21,4 +21,10 @@ router.route('/dashboard')
     })
   })
 
+router.route('/client')
+  .post((req, res) => {
+    console.log(req.body) // no recibe el body!!
+    res.status(200).json({message: 'user create'})
+  })
+
 module.exports = router

@@ -1,8 +1,11 @@
 const express = require('express')
+const bodyParser = require('body-parser')
+
 const app = express()
 
 const apiFake = require('./apiFake')
 
+app.use(bodyParser.json())
 app.use(express.static('public'))
 app.set('view engine', 'pug')
 app.get('/', function (req, res) {
