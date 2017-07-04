@@ -1,6 +1,8 @@
 const yo = require('yo-yo')
+const $ = require('jquery')
 
-module.exports = (dashData) => {
+module.exports = (user) => {
+  user ? loadData(user) : user = null
   return yo`
     <div class='mdl-cell mdl-cell--9-col mdl-color--white mdl-shadow--2dp'>
       <header class='mdl-layout__header'>
@@ -71,7 +73,7 @@ module.exports = (dashData) => {
           <div class="mdl-tabs__panel" id="data3">
             <div class='mdl-grid formPanel' id="panel2">
               <div class="mdl-textfield mdl-js-textfield mdl-cell--7-col">
-                <textarea class="mdl-textfield__input" type="text" id="notes" rows="3" required='true'></textarea>
+                <textarea class="mdl-textfield__input" type="text" id="notes" rows="3"></textarea>
                 <label class="mdl-textfield__label" for="notes">Notas adicionales</label>
               </div>
             </div>
@@ -123,6 +125,8 @@ module.exports = (dashData) => {
     }
     // Convert data to JSON
     data = JSON.stringify(data)
+    // if edit
+    // user ? console.log('vienve por edicion') : null
     // Send data to API
     let uri = '/api/client'
     try {
@@ -157,5 +161,19 @@ module.exports = (dashData) => {
       }
     }
     return validate
+  }
+
+  function loadData (ci) {
+    console.log('dentro del load data')
+    $(document).ready(function () {
+      $('#name').val('Ronalses')
+      $('#ci').val('27411712')
+      $('#lastname').val('Aguilar')
+      $('#email').val('ronalses@hotmail.com')
+      $('#cellPhone').val('234234234')
+      $('#cellPhone2').val('999293988')
+      $('#address').val('Carrera 21')
+      $('#notes').val('')
+    })
   }
 }
