@@ -1,0 +1,20 @@
+{
+    "clients": [
+        {
+            "ci": "14232123",
+            "name": "Eliu",
+            "lastname": "Aguilar",
+            "email": "developer@hotmial.com",
+            "address": "Tierra negra",
+            "notes": ""
+        },
+        {
+            "ci": "27411712",
+            "name": "Ronalses",
+            "lastname": "Aguilar",
+            "email": "Ronalses@hotmail.com",
+            "address": "Tierra negra",
+            "notes": ""
+        }
+    ]
+}
