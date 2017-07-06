@@ -16,7 +16,7 @@ page('/cliente', () => {
   console.log('Weee')
 })
 
-page('/cliente/:ci', editClient)
+page('/cliente/:ci', loadClient, editClient)
 
 page('/listaclientes', loadForDataTable, (ctx) => {
   console.log('lista clientes', ctx.clients)
@@ -53,15 +53,29 @@ page('/listaclientes', loadForDataTable, (ctx) => {
   componentHandler.upgradeDom()
 })
 
-function editClient (data) {
+function editClient (ctx) {
   let main = document.querySelector('main')
-  empty(main).appendChild(template(form(data.params.ci)))
+  empty(main).appendChild(template(form(ctx.client)))
   componentHandler.upgradeDom()
 }
 
+// load client for edit
+async function loadClient (ctx, next) {
+  try {
+    console.log(ctx.params.ci)
+    console.log('cargando cliente')
+    let data = await fetch(`/api/client/${ctx.params.ci}`).then(res => res.json())
+    ctx.client = data
+    next()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+// load clients
 async function loadForDataTable (ctx, next) {
   try {
-    console.log('cargando cliente')
+    console.log('cargando clientes')
     let data = await fetch('/api/clients').then(res => res.json())
     let clients = data.clients.map((client) => {
       let clientProcess = [
@@ -76,7 +90,7 @@ async function loadForDataTable (ctx, next) {
       ]
       return clientProcess
     })
-    // clients = JSON.stringify(data)
+
     ctx.clients = clients
     next()
   } catch (error) {

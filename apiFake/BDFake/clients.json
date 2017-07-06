@@ -5,6 +5,8 @@
             "name": "Eliu",
             "lastname": "Aguilar",
             "email": "developer@hotmial.com",
+            "cellPhone": "23423",
+            "cellPhone2": "234234",
             "address": "Tierra negra",
             "notes": ""
         },
@@ -13,6 +15,8 @@
             "name": "Ronalses",
             "lastname": "Aguilar",
             "email": "Ronalses@hotmail.com",
+            "cellPhone": "23423",
+            "cellPhone2": "234234",
             "address": "Tierra negra",
             "notes": ""
         },
@@ -20,7 +24,9 @@
             "ci": "12341234",
             "name": "Esneider",
             "lastname": "Hernandez",
-            "email": "Esneider@gmai.com",
+            "email": "Esneider@gmail.com",
+            "cellPhone": "23423",
+            "cellPhone2": "234234",
             "address": "El mosku",
             "notes": "Es patinetero "
         },
@@ -28,9 +34,41 @@
             "ci": "12341233",
             "name": "Sin nombre",
             "lastname": "Aguilar",
-            "email": "Ronalses@hotmail.com",
+            "email": "sinnombre@hotmail.com",
+            "cellPhone": "23423",
+            "cellPhone2": "234234",
             "address": "Tierra negra",
             "notes": ""
+        },
+        {
+            "ci": "1234",
+            "name": "algun",
+            "lastname": "nombre",
+            "email": "algun@sdf.com",
+            "cellPhone": "23423",
+            "cellPhone2": "234234",
+            "address": "sdfgsdfgsdf",
+            "notes": "nota porque si"
+        },
+        {
+            "ci": "444444",
+            "name": "asdf",
+            "lastname": "gdfhfghyjhj",
+            "email": "dkfif@d.com",
+            "cellPhone": "23423",
+            "cellPhone2": "234234",
+            "address": "dfgfghfghj",
+            "notes": ""
+        },
+        {
+            "ci": "234323",
+            "name": "elvio",
+            "lastname": "aguirre",
+            "email": "elivo@gmail.com",
+            "cellPhone": "23423",
+            "cellPhone2": "234234",
+            "address": "zxvxcvzxcv",
+            "notes": "xvxcv"
         }
     ]
 }

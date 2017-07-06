@@ -2,6 +2,7 @@ const yo = require('yo-yo')
 const $ = require('jquery')
 
 module.exports = (user) => {
+  console.log(user)
   user ? loadData(user) : user = null
   return yo`
     <div class='mdl-cell mdl-cell--9-col mdl-color--white mdl-shadow--2dp'>
@@ -120,6 +121,8 @@ module.exports = (user) => {
       name: this.name.value,
       lastname: this.lastname.value,
       email: this.email.value,
+      cellPhone: this.cellPhone.value,
+      cellPhone2: this.cellPhone2.value,
       address: this.address.value,
       notes: this.notes.value
     }
@@ -128,11 +131,12 @@ module.exports = (user) => {
     // if edit
     // user ? console.log('vienve por edicion') : null
     // Send data to API
-    let uri = '/api/client'
+    let uri = `/api/client${user ? `/${user.ci}` : ''}`
     try {
       let response = await fetch(
           uri, {
-            method: 'POST',
+            // if user new or update
+            method: user ? 'PUT' : 'POST',
             body: data,
             headers: {
               'Content-type': 'application/json'
@@ -163,17 +167,17 @@ module.exports = (user) => {
     return validate
   }
 
-  function loadData (ci) {
+  function loadData (client) {
     console.log('dentro del load data')
     $(document).ready(function () {
-      $('#name').val('Ronalses')
-      $('#ci').val('27411712')
-      $('#lastname').val('Aguilar')
-      $('#email').val('ronalses@hotmail.com')
-      $('#cellPhone').val('234234234')
-      $('#cellPhone2').val('999293988')
-      $('#address').val('Carrera 21')
-      $('#notes').val('')
+      $('#name').val(client.name)
+      $('#ci').val(client.ci)
+      $('#lastname').val(client.lastname)
+      $('#email').val(client.email)
+      $('#cellPhone').val(client.cellPhone)
+      $('#cellPhone2').val(client.cellPhone2)
+      $('#address').val(client.address)
+      $('#notes').val(client.notes)
     })
   }
 }
