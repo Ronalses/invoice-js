@@ -15,6 +15,22 @@
             "email": "Ronalses@hotmail.com",
             "address": "Tierra negra",
             "notes": ""
+        },
+        {
+            "ci": "12341234",
+            "name": "Esneider",
+            "lastname": "Hernandez",
+            "email": "Esneider@gmai.com",
+            "address": "El mosku",
+            "notes": "Es patinetero "
+        },
+        {
+            "ci": "12341233",
+            "name": "Sin nombre",
+            "lastname": "Aguilar",
+            "email": "Ronalses@hotmail.com",
+            "address": "Tierra negra",
+            "notes": ""
         }
     ]
 }

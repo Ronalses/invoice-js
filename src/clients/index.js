@@ -18,8 +18,8 @@ page('/cliente', () => {
 
 page('/cliente/:ci', editClient)
 
-page('/listaclientes', () => {
-  console.log('cargando cliente')
+page('/listaclientes', loadForDataTable, (ctx) => {
+  console.log('lista clientes', ctx.clients)
   let main = document.querySelector('main')
   empty(main).appendChild(table())
   $('#listClients').DataTable({
@@ -28,7 +28,9 @@ page('/listaclientes', () => {
     language: {
       search: '_INPUT_',
       searchPlaceholder: 'Buscar'
-    }
+    },
+    'processing': true,
+    'aaData': ctx.clients
   })
 
   let dataTable = $('#listClients').DataTable()
@@ -55,4 +57,29 @@ function editClient (data) {
   let main = document.querySelector('main')
   empty(main).appendChild(template(form(data.params.ci)))
   componentHandler.upgradeDom()
+}
+
+async function loadForDataTable (ctx, next) {
+  try {
+    console.log('cargando cliente')
+    let data = await fetch('/api/clients').then(res => res.json())
+    let clients = data.clients.map((client) => {
+      let clientProcess = [
+        client.ci,
+        client.name,
+        client.lastname,
+        client.email,
+        client.address,
+        `<button class='mdl-button mdl-button--icon like'><i class='material-icons' style='color:#46b8da'>dvr</i></button>
+        <button class='mdl-button mdl-button--icon edit'><i class='material-icons' style='color:#f0ad4e'>mode_edit</i></button>
+        <button class='mdl-button mdl-button--icon remove'><i class='material-icons' style='color:#d9534f'>delete</i></button>`
+      ]
+      return clientProcess
+    })
+    // clients = JSON.stringify(data)
+    ctx.clients = clients
+    next()
+  } catch (error) {
+    console.log(error)
+  }
 }
