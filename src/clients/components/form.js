@@ -1,5 +1,7 @@
 const yo = require('yo-yo')
+const page = require('page')
 const $ = require('jquery')
+const modal = require('../../lib/mdl-jquery-modal-dialog.js')
 
 module.exports = (user) => {
   console.log(user)
@@ -114,6 +116,7 @@ module.exports = (user) => {
   }
 
   async function onsubmit (ev) {
+    modal.showLoading()
     ev.preventDefault()
     console.log(this.ci.value)
     let data = {
@@ -134,16 +137,17 @@ module.exports = (user) => {
     let uri = `/api/client${user ? `/${user.ci}` : ''}`
     try {
       let response = await fetch(
-          uri, {
-            // if user new or update
-            method: user ? 'PUT' : 'POST',
-            body: data,
-            headers: {
-              'Content-type': 'application/json'
-            }
-          }).then(res => res.json())
+        uri, {
+          // if user new or update
+          method: user ? 'PUT' : 'POST',
+          body: data,
+          headers: {
+            'Content-type': 'application/json'
+          }
+        }).then(res => res.json())
 
       console.log(response)
+      resetForm()
     } catch (error) {
       console.log('Error :', error)
     }
@@ -152,6 +156,21 @@ module.exports = (user) => {
   function click (ev) {
     ev.preventDefault()
     console.log('weeey')
+  }
+
+  function resetForm () {
+    modal.hideLoading()
+    modal.showDialog({
+      title: 'Guardado',
+      text: user ? 'Actualizado con exito!' : 'Registrado con exito!',
+      positive: {
+        title: 'OK',
+        onClick: function (e) {
+          user ? page.redirect('/listaclientes') : page.redirect('/cliente')
+        }
+      },
+      cancelable: false
+    })
   }
 
   function validateNext (id) {

@@ -30,6 +30,9 @@
       "fetch",
       "componentHandler",
       "FormData"
+    ],
+    "ignore": [
+      "*/lib/"
     ]
   },
   "dependencies": {

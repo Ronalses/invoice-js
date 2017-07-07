@@ -34,7 +34,7 @@
             "ci": "12341233",
             "name": "Sin nombre",
             "lastname": "Aguilar",
-            "email": "sinnombre@hotmail.com",
+            "email": "sinombre@hotmail.com",
             "cellPhone": "23423",
             "cellPhone2": "234234",
             "address": "Tierra negra",
@@ -47,8 +47,28 @@
             "email": "elivo@gmail.com",
             "cellPhone": "23423",
             "cellPhone2": "234234",
-            "address": "en alguna calle",
+            "address": "en alguna callee",
             "notes": "xvxcv"
+        },
+        {
+            "ci": "234234",
+            "name": "edgard",
+            "lastname": "diel",
+            "email": "edgard@gmail.com",
+            "cellPhone": "1234123",
+            "cellPhone2": "22323",
+            "address": "el cerrito",
+            "notes": "no "
+        },
+        {
+            "ci": "1234123",
+            "name": "nuevo ",
+            "lastname": "usuario",
+            "email": "nuevo@user.com",
+            "cellPhone": "123412",
+            "cellPhone2": "123412",
+            "address": "asdasdf",
+            "notes": "asdf"
         }
     ]
 }
