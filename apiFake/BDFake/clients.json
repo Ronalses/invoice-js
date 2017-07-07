@@ -41,33 +41,13 @@
             "notes": ""
         },
         {
-            "ci": "1234",
-            "name": "algun",
-            "lastname": "nombre",
-            "email": "algun@sdf.com",
-            "cellPhone": "23423",
-            "cellPhone2": "234234",
-            "address": "sdfgsdfgsdf",
-            "notes": "nota porque si"
-        },
-        {
-            "ci": "444444",
-            "name": "asdf",
-            "lastname": "gdfhfghyjhj",
-            "email": "dkfif@d.com",
-            "cellPhone": "23423",
-            "cellPhone2": "234234",
-            "address": "dfgfghfghj",
-            "notes": ""
-        },
-        {
             "ci": "234323",
             "name": "elvio",
             "lastname": "aguirre",
             "email": "elivo@gmail.com",
             "cellPhone": "23423",
             "cellPhone2": "234234",
-            "address": "zxvxcvzxcv",
+            "address": "en alguna calle",
             "notes": "xvxcv"
         }
     ]

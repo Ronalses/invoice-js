@@ -42,13 +42,21 @@ page('/listaclientes', loadForDataTable, (ctx) => {
     page.redirect(`/cliente/${data[0]}`)
   })
 
-  dataTable.on('click', '.remove', function () {
+  dataTable.on('click', '.remove', async function () {
     let $tr = $(this).closest('tr')
     let data = dataTable.row($tr).data()
-
-    console.log(data[0])
-    dataTable.row($tr).remove().draw()
-    console.log('Eliminando')
+    let ci = data[0]
+    let uri = `/api/client/${ci}`
+    console.log(uri)
+    try {
+      let response = await fetch(uri, {method: 'delete'}).then(res => res.json())
+      console.log(response)
+      dataTable.row($tr).remove().draw()
+      console.log('Eliminando')
+    } catch (error) {
+      console.log(error)
+    }
+    console.log(ci)
   })
   componentHandler.upgradeDom()
 })
