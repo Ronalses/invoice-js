@@ -27,22 +27,6 @@ page('/listainventario', () => {
     },
     'processing': true
   })
-
-  let dataTable = $('#listInvetory').DataTable()
-
-  dataTable.on('click', '.edit', function () {
-    let $tr = $(this).closest('tr')
-    let data = dataTable.row($tr).data()
-    console.log(data[0])
-    page.redirect(`/inventario/${data[0]}`)
-  })
-
-  dataTable.on('click', '.remove', function () {
-    let $tr = $(this).closest('tr')
-    let data = dataTable.row($tr).data()
-    dataTable.row($tr).remove().draw()
-    console.log(data[0])
-  })
 })
 
 function editProduct (ctx) {
