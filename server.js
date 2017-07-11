@@ -20,11 +20,15 @@ app.get('/cliente', function (req, res) {
   res.render('index')
 })
 
-app.get('/test', function (req, res) {
+app.get('/listaclientes', function (req, res) {
   res.render('index')
 })
 
-app.get('/listaclientes', function (req, res) {
+app.get('/inventario', function (req, res) {
+  res.render('index')
+})
+
+app.get('/test', function (req, res) {
   res.render('index')
 })
 
