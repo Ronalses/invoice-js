@@ -3,8 +3,8 @@ const yo = require('yo-yo')
 const $ = require('jquery')
 // const modal = require('../../lib/mdl-jquery-modal-dialog.js')
 
-module.exports = (producto) => {
-  loadData('')
+module.exports = (product) => {
+  product ? loadData(product) : product = null
   return yo`
     <div class='mdl-cell mdl-cell--7-col mdl-color--white mdl-shadow--2dp'>
       <header class='mdl-layout__header'>
@@ -57,11 +57,12 @@ module.exports = (producto) => {
   }
 
   function loadData (product) {
+    console.log(product.code)
     $(document).ready(function () {
-      $('#code').val('12134')
-      $('#name').val('antena')
-      $('#state').val('existente')
-      $('#price').val('22342')
+      $('#code').val(product.code)
+      $('#name').val(product.name)
+      $('#state').val(product.state)
+      $('#price').val(product.price)
     })
   }
 }
