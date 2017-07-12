@@ -1,6 +1,6 @@
 const express = require('express')
-const fs = require('fs')
 const Client = require('./controlers/Client')
+const Product = require('./controlers/Product')
 
 const router = express.Router()
 
@@ -25,15 +25,7 @@ router.route('/dashboard')
 
 // create client
 router.route('/client')
-  .post((req, res) => {
-    let json = JSON.parse(fs.readFileSync(`${__dirname}/BDFake/clients.json`, 'utf8'))
-    json.clients.push(req.body)
-    console.log(json)
-    json = JSON.stringify(json, null, '    ')
-    fs.writeFile(`${__dirname}/BDFake/clients.json`, json, 'utf8', () => {
-      res.status(200).json({ message: 'user create' })
-    })
-  })
+  .post(Client.add)
 
 router.route('/client/:ci')
   .get(Client.get)
@@ -42,5 +34,15 @@ router.route('/client/:ci')
 
 router.route('/clients')
   .get(Client.all)
+
+router.route('/product')
+  .post(Product.add)
+router.route('/product/:code')
+  .get(Product.get)
+  .put(Product.edit)
+  .delete(Product.delete)
+
+router.route('/products')
+  .get(Product.all)
 
 module.exports = router

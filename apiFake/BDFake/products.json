@@ -1,0 +1,16 @@
+{
+    "products": [
+        {
+            "code": "12342",
+            "name": "antena",
+            "state": "activo",
+            "price": 23432
+        },
+        {
+            "code": "99930",
+            "name": "mouse",
+            "state": "activo",
+            "price": 2999
+        }
+    ]
+}
