@@ -20,7 +20,7 @@ exports.get = (req, res) => {
       return res.status(200).json(clients[i])
     }
   }
-  res.status(200).json({ message: 'send user' })
+  res.status(404).json({ message: 'no fund user' })
 }
 
 exports.edit = (req, res) => {
@@ -40,7 +40,7 @@ exports.edit = (req, res) => {
       clients[i] = client
       json.clients = clients
       json = JSON.stringify(json, null, '    ')
-      fs.writeFile(`${__dirname}/BDFake/clients.json`, json, 'utf8', () => {
+      fs.writeFile(`${__dirname}/../BDFake/clients.json`, json, 'utf8', () => {
         return res.status(200).json({ message: 'user update' })
       })
     }
@@ -59,7 +59,7 @@ exports.delete = (req, res) => {
   })
   json.clients = clients
   json = JSON.stringify(json, null, '    ')
-  fs.writeFile(`${__dirname}/BDFake/clients.json`, json, 'utf8', () => {
+  fs.writeFile(`${__dirname}/../BDFake/clients.json`, json, 'utf8', () => {
     return res.status(200).json({ message: 'user delete' })
   })
 }
