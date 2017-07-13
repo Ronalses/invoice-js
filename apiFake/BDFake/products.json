@@ -11,6 +11,24 @@
             "name": "mouse",
             "state": "activo",
             "price": 2999
+        },
+        {
+            "code": "19923",
+            "name": "cable",
+            "state": "activo",
+            "price": "1222"
+        },
+        {
+            "code": "5544",
+            "name": "caraotas",
+            "state": "activo",
+            "price": "998989"
+        },
+        {
+            "code": "3433",
+            "name": "teclado",
+            "state": "activo",
+            "price": "44345"
         }
     ]
 }

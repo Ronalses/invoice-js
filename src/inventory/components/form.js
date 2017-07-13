@@ -1,7 +1,7 @@
 const yo = require('yo-yo')
-// const page = require('page')
+const page = require('page')
 const $ = require('jquery')
-// const modal = require('../../lib/mdl-jquery-modal-dialog.js')
+const modal = require('../../lib/mdl-jquery-modal-dialog.js')
 
 module.exports = (product) => {
   product ? loadData(product) : product = null
@@ -43,7 +43,8 @@ module.exports = (product) => {
       </div>
     </div>
   `
-  function onsubmit (ev) {
+  async function onsubmit (ev) {
+    modal.showLoading()
     ev.preventDefault()
     let data = {
       code: this.code.value,
@@ -54,6 +55,25 @@ module.exports = (product) => {
 
     data = JSON.stringify(data)
     console.log(data)
+    /**
+     * if edit product or create new product
+     */
+    let uri = `api/product${product ? `/${product.code}` : ''}`
+    try {
+      let response = await fetch(
+        uri,
+        {
+          method: product ? 'PUT' : 'POST',
+          body: data,
+          headers: {
+            'Content-type': 'application/json'
+          }
+        }).then(res => res.json())
+      console.log(response)
+      resetForm()
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   function loadData (product) {
@@ -63,6 +83,21 @@ module.exports = (product) => {
       $('#name').val(product.name)
       $('#state').val(product.state)
       $('#price').val(product.price)
+    })
+  }
+
+  function resetForm () {
+    modal.hideLoading()
+    modal.showDialog({
+      title: 'Guardado',
+      text: product ? 'Se actualizo con exito!' : 'Guardado con exito!',
+      positive: {
+        title: 'Ok',
+        onClick: function (ev) {
+          product ? page.redirect('/listainventario') : page.redirect('inventario')
+        }
+      },
+      cancelable: false
     })
   }
 }
