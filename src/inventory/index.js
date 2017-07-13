@@ -15,7 +15,7 @@ page('/inventario', () => {
 
 page('/inventario/:ci', loadProduct, editProduct)
 
-page('/listainventario', () => {
+page('/listainventario', loadProducts, (ctx, next) => {
   let main = document.querySelector('main')
   empty(main).appendChild(table())
   $('#listInvetory').DataTable({
@@ -25,7 +25,8 @@ page('/listainventario', () => {
       search: '_INPUT_',
       searchPlaceholder: 'Buscar'
     },
-    'processing': true
+    'processing': true,
+    'aaData': ctx.products
   })
 })
 
@@ -46,4 +47,28 @@ async function loadProduct (ctx, next) {
   }
   ctx.client = data
   next()
+}
+
+// load products for api
+async function loadProducts (ctx, next) {
+  try {
+    let data = await fetch('/api/products').then(res => res.json())
+    let products = data.products.map((product) => {
+      let productProcess = [
+        product.code,
+        product.name,
+        product.state,
+        '21/08/17',
+        product.price,
+        `<button class='mdl-button mdl-button--icon like'><i class='material-icons' style='color:#46b8da'>dvr</i></button>
+        <button class='mdl-button mdl-button--icon edit'><i class='material-icons' style='color:#f0ad4e'>mode_edit</i></button>
+        <button class='mdl-button mdl-button--icon remove'><i class='material-icons' style='color:#d9534f'>delete</i></button>`
+      ]
+      return productProcess
+    })
+    ctx.products = products
+    next()
+  } catch (error) {
+    console.log(error)
+  }
 }
