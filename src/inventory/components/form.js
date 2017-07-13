@@ -58,7 +58,7 @@ module.exports = (product) => {
     /**
      * if edit product or create new product
      */
-    let uri = `api/product${product ? `/${product.code}` : ''}`
+    let uri = `/api/product${product ? `/${product.code}` : ''}`
     try {
       let response = await fetch(
         uri,

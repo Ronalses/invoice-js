@@ -38,15 +38,14 @@ function editProduct (ctx) {
 
 async function loadProduct (ctx, next) {
   console.log(ctx.params.ci)
-  console.log('cargando producto')
-  let data = {
-    code: '12341234',
-    name: 'antena',
-    state: 'activo',
-    price: '12345'
+  try {
+    console.log('cargando producto')
+    let data = await fetch(`/api/product/${ctx.params.ci}`).then(res => res.json())
+    ctx.client = data
+    next()
+  } catch (error) {
+    console.log(error)
   }
-  ctx.client = data
-  next()
 }
 
 // load products for api
