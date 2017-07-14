@@ -1,5 +1,5 @@
 {
-  "name": "darse",
+  "name": "invoice",
   "version": "1.0.0",
   "description": "Sistema de factuacion ",
   "main": "server.js",
@@ -19,7 +19,7 @@
     "Javascript",
     "Ventas"
   ],
-  "author": "Suke.io",
+  "author": "ronalses",
   "license": "ISC",
   "bugs": {
     "url": "https://gitlab.com/Ronalses/darse/issues"

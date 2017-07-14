@@ -39,5 +39,5 @@ app.get('/test', function (req, res) {
 app.use('/api', apiFake)
 app.listen(3000, function (err) {
   if (err) return console.log('Hubo un error')
-  console.log('Darse Escuchando en el puerto 3000')
+  console.log('Escuchando en el puerto 3000')
 })
