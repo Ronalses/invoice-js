@@ -2,7 +2,9 @@ const fs = require('fs')
 
 exports.add = (req, res) => {
   let json = JSON.parse(fs.readFileSync(`${__dirname}/../BDFake/products.json`, 'utf8'))
-  json.products.push(req.body)
+  let product = req.body
+  product['date'] = Date()
+  json.products.push(product)
   json = JSON.stringify(json, null, '    ')
   fs.writeFile(`${__dirname}/../BDFake/products.json`, json, 'utf8', () => {
     res.status(200).json({ message: 'product create' })
