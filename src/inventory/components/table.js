@@ -14,11 +14,18 @@ module.exports = (dashData) => {
       page.redirect(`/inventario/${data[0]}`)
     })
 
-    dataTable.on('click', '.remove', function () {
+    dataTable.on('click', '.remove', async function () {
       let $tr = $(this).closest('tr')
       let data = dataTable.row($tr).data()
-      dataTable.row($tr).remove().draw()
-      console.log(data[0])
+      let code = data[0]
+      let uri = `/api/product/${code}`
+      try {
+        let response = await fetch(uri, {method: 'DELETE'}).then(res => res.json())
+        console.log(response)
+        dataTable.row($tr).remove().draw()
+      } catch (error) {
+        console.log(error)
+      }
     })
   })
   // table template

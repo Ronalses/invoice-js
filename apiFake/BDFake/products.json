@@ -22,25 +22,11 @@
             "quantity": 2
         },
         {
-            "code": "5544",
-            "name": "caraotas",
-            "state": "activo",
-            "price": "998989",
-            "quantity": 3
-        },
-        {
             "code": "3433",
             "name": "teclado",
             "state": "inactivo",
             "price": "44345",
             "quantity": 24
-        },
-        {
-            "code": "23234",
-            "name": "cama",
-            "state": "activo",
-            "price": "234",
-            "quantity": 32
         },
         {
             "code": "444",
