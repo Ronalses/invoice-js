@@ -2,11 +2,20 @@ const fs = require('fs')
 
 exports.add = (req, res) => {
   let json = JSON.parse(fs.readFileSync(`${__dirname}/../BDFake/clients.json`, 'utf8'))
-  json.clients.push(req.body)
+  let client = req.body
+  let clients = json.clients
+  // if in db register
+  for (let i in clients) {
+    if (client.ci === clients[i].ci) {
+      return res.status(200).json({message: 'exist'})
+    }
+  }
+
+  json.clients.push(client)
   console.log(json)
   json = JSON.stringify(json, null, '    ')
-  fs.writeFile(`${__dirname}/BDFake/clients.json`, json, 'utf8', () => {
-    res.status(200).json({ message: 'user create' })
+  fs.writeFile(`${__dirname}/../BDFake/clients.json`, json, 'utf8', () => {
+    res.status(201).json({ message: 'user create' })
   })
 }
 

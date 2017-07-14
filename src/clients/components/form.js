@@ -147,7 +147,18 @@ module.exports = (user) => {
         }).then(res => res.json())
 
       console.log(response)
-      resetForm()
+      if (response.message === 'exist') {
+        modal.hideLoading()
+        modal.showDialog({
+          title: 'Oh Oh!',
+          text: 'Existe un cliente registrado con esta cedula',
+          positive: {
+            title: 'Ok'
+          }
+        })
+      } else {
+        resetForm()
+      }
     } catch (error) {
       modal.hideLoading()
       console.log('Error :', error)
