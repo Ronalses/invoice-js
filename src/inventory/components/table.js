@@ -26,8 +26,7 @@ module.exports = (dashData) => {
             let $tr = $(this).closest('tr')
             let data = dataTable.row($tr).data()
             let code = data[0]
-            productDelete(code)
-            dataTable.row($tr).remove().draw()
+            productDelete(code, dataTable, $tr)
           }
         },
         // Not cancel
@@ -38,7 +37,7 @@ module.exports = (dashData) => {
       })
     })
   })
-  async function productDelete (code) {
+  async function productDelete (code, dataTable, $tr) {
     let uri = `/api/product/${code}`
     try {
       let response = await fetch(uri, {method: 'DELETE'}).then(res => res.json())
@@ -50,8 +49,16 @@ module.exports = (dashData) => {
           title: 'Ok'
         }
       })
+      dataTable.row($tr).remove().draw()
     } catch (error) {
       console.log(error)
+      modal.showDialog({
+        title: 'Oh Oh!',
+        text: 'No se ha podido eliminar',
+        positive: {
+          title: 'Ok'
+        }
+      })
     }
   }
   // table template
