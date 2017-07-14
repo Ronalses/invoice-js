@@ -2,9 +2,17 @@ const fs = require('fs')
 
 exports.add = (req, res) => {
   let json = JSON.parse(fs.readFileSync(`${__dirname}/../BDFake/products.json`, 'utf8'))
+  let products = json.products
   let product = req.body
+  // if is in db
+  for (let i in products) {
+    if (product.code === products[i].code) {
+      return res.status(200).json({message: 'exist'})
+    }
+  }
   product['date'] = Date()
   product['state'] = true
+
   json.products.push(product)
   json = JSON.stringify(json, null, '    ')
   fs.writeFile(`${__dirname}/../BDFake/products.json`, json, 'utf8', () => {

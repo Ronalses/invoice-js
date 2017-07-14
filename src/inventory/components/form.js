@@ -70,7 +70,18 @@ module.exports = (product) => {
           }
         }).then(res => res.json())
       console.log(response)
-      resetForm()
+      if (response.message === 'exist') {
+        modal.hideLoading()
+        modal.showDialog({
+          title: 'Oh Oh!',
+          text: 'Existe un producto registrado con este codigo',
+          positive: {
+            title: 'Ok'
+          }
+        })
+      } else {
+        resetForm()
+      }
     } catch (error) {
       console.log(error)
       modal.hideLoading()
