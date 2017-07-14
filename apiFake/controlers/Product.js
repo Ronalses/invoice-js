@@ -4,6 +4,7 @@ exports.add = (req, res) => {
   let json = JSON.parse(fs.readFileSync(`${__dirname}/../BDFake/products.json`, 'utf8'))
   let product = req.body
   product['date'] = Date()
+  product['state'] = true
   json.products.push(product)
   json = JSON.stringify(json, null, '    ')
   fs.writeFile(`${__dirname}/../BDFake/products.json`, json, 'utf8', () => {
