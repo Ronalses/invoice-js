@@ -25,8 +25,7 @@ module.exports = (dashData) => {
             let $tr = $(this).closest('tr')
             let data = dataTable.row($tr).data()
             let ci = data[0]
-            clientDelete(ci)
-            dataTable.row($tr).remove().draw()
+            clientDelete(ci, dataTable, $tr)
           }
         },
         // Not cancel
@@ -37,8 +36,7 @@ module.exports = (dashData) => {
       })
     })
   })
-
-  async function clientDelete (ci) {
+  async function clientDelete (ci, dataTable, $tr) {
     let uri = `/api/client/${ci}`
     console.log(uri)
     try {
@@ -51,8 +49,16 @@ module.exports = (dashData) => {
           title: 'Ok'
         }
       })
+      dataTable.row($tr).remove().draw()
     } catch (error) {
       console.log(error)
+      modal.showDialog({
+        title: 'Oh Oh!',
+        text: 'No se ha podido eliminar',
+        positive: {
+          title: 'Ok'
+        }
+      })
     }
   }
 

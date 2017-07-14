@@ -149,7 +149,15 @@ module.exports = (user) => {
       console.log(response)
       resetForm()
     } catch (error) {
+      modal.hideLoading()
       console.log('Error :', error)
+      modal.showDialog({
+        title: 'Oh Oh!',
+        text: `No se ha podido ${user ? 'actualizar' : 'guardar'}`,
+        positive: {
+          title: 'Ok'
+        }
+      })
     }
   }
 

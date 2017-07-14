@@ -29,16 +29,6 @@
             "cellPhone2": "234234",
             "address": "El mosku",
             "notes": "Es patinetero "
-        },
-        {
-            "ci": "234234",
-            "name": "edgard",
-            "lastname": "diel",
-            "email": "edgard@gmail.com",
-            "cellPhone": "1234123",
-            "cellPhone2": "22323",
-            "address": "el cerrito",
-            "notes": "no "
         }
     ]
 }

@@ -6,6 +6,7 @@ require('../lib/dataTables.material.min')(window, $)
 const form = require('./components/form')
 const table = require('./components/table')
 const template = require('./template')
+const modal = require('../lib/mdl-jquery-modal-dialog.js')
 
 page('/cliente', () => {
   console.log('cargando cliente')
@@ -51,6 +52,13 @@ async function loadClient (ctx, next) {
     next()
   } catch (error) {
     console.log(error)
+    modal.showDialog({
+      title: 'Oh Oh!',
+      text: 'No se ha podido cargar los clientes',
+      positive: {
+        title: 'Ok'
+      }
+    })
   }
 }
 
@@ -77,5 +85,12 @@ async function loadForDataTable (ctx, next) {
     next()
   } catch (error) {
     console.log(error)
+    modal.showDialog({
+      title: 'Oh Oh!',
+      text: 'No se ha podido cargar los clientes',
+      positive: {
+        title: 'Ok'
+      }
+    })
   }
 }
