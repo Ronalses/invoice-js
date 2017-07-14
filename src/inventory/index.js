@@ -53,11 +53,13 @@ async function loadProducts (ctx, next) {
   try {
     let data = await fetch('/api/products').then(res => res.json())
     let products = data.products.map((product) => {
+      let d = new Date(product.date)
+      let date = d.toLocaleDateString()
       let productProcess = [
         product.code,
         product.name,
         product.state,
-        '21/08/17',
+        date,
         product.price,
         `<button class='mdl-button mdl-button--icon like'><i class='material-icons' style='color:#46b8da'>dvr</i></button>
         <button class='mdl-button mdl-button--icon edit'><i class='material-icons' style='color:#f0ad4e'>mode_edit</i></button>
