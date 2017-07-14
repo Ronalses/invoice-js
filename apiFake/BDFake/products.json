@@ -4,31 +4,50 @@
             "code": "12342",
             "name": "antena",
             "state": "activo",
-            "price": 23432
+            "price": "23432",
+            "quantity": 23
         },
         {
             "code": "99930",
             "name": "mouse",
             "state": "activo",
-            "price": 2999
+            "price": 2999,
+            "quantity": 32
         },
         {
             "code": "19923",
             "name": "cable",
             "state": "activo",
-            "price": "1222"
+            "price": "1222",
+            "quantity": 2
         },
         {
             "code": "5544",
             "name": "caraotas",
             "state": "activo",
-            "price": "998989"
+            "price": "998989",
+            "quantity": 3
         },
         {
             "code": "3433",
             "name": "teclado",
             "state": "inactivo",
-            "price": "44345"
+            "price": "44345",
+            "quantity": 24
+        },
+        {
+            "code": "23234",
+            "name": "cama",
+            "state": "activo",
+            "price": "234",
+            "quantity": 32
+        },
+        {
+            "code": "444",
+            "name": "Pantalla",
+            "state": "activo",
+            "price": "9921",
+            "quantity": 45
         }
     ]
 }

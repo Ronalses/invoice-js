@@ -29,6 +29,10 @@ module.exports = (product) => {
                 <label class="mdl-textfield__label" for="state">estado</label>
               </div>
               <div class="mdl-textfield mdl-js-textfield mdl-cell--5-col">
+                <input class="mdl-textfield__input" type="number" id="quantity" required='true'>
+                <label class="mdl-textfield__label" for="quantity">Cantidad</label>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-cell--5-col">
                 <input class="mdl-textfield__input" type="number" id="price" required='true'>
                 <label class="mdl-textfield__label" for="price">Precio</label>
               </div>
@@ -50,7 +54,8 @@ module.exports = (product) => {
       code: this.code.value,
       name: this.name.value,
       state: this.state.value,
-      price: this.price.value
+      price: this.price.value,
+      quantity: parseInt(this.quantity.value)
     }
 
     data = JSON.stringify(data)
@@ -83,6 +88,7 @@ module.exports = (product) => {
       $('#name').val(product.name)
       $('#state').val(product.state)
       $('#price').val(product.price)
+      $('#quantity').val(product.quantity)
     })
   }
 
