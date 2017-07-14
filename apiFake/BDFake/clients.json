@@ -31,16 +31,6 @@
             "notes": "Es patinetero "
         },
         {
-            "ci": "234323",
-            "name": "elvio",
-            "lastname": "aguirre",
-            "email": "elivo@gmail.com",
-            "cellPhone": "23423",
-            "cellPhone2": "234234",
-            "address": "en alguna callee",
-            "notes": "xvxcv"
-        },
-        {
             "ci": "234234",
             "name": "edgard",
             "lastname": "diel",
@@ -49,16 +39,6 @@
             "cellPhone2": "22323",
             "address": "el cerrito",
             "notes": "no "
-        },
-        {
-            "ci": "1234123",
-            "name": "nuevo ",
-            "lastname": "usuario",
-            "email": "nuevo@user.com",
-            "cellPhone": "123412",
-            "cellPhone2": "123412",
-            "address": "asdasdf",
-            "notes": "asdf"
         }
     ]
 }

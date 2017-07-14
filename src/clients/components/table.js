@@ -1,6 +1,7 @@
 const yo = require('yo-yo')
 const $ = require('jquery')
 const page = require('page')
+const modal = require('../../lib/mdl-jquery-modal-dialog.js')
 
 module.exports = (dashData) => {
   // LISTENER BUTTONS
@@ -13,23 +14,48 @@ module.exports = (dashData) => {
       page.redirect(`/cliente/${data[0]}`)
     })
 
-    dataTable.on('click', '.remove', async function () {
-      let $tr = $(this).closest('tr')
-      let data = dataTable.row($tr).data()
-      let ci = data[0]
-      let uri = `/api/client/${ci}`
-      console.log(uri)
-      try {
-        let response = await fetch(uri, {method: 'delete'}).then(res => res.json())
-        console.log(response)
-        dataTable.row($tr).remove().draw()
-        console.log('Eliminando')
-      } catch (error) {
-        console.log(error)
-      }
-      console.log(ci)
+    dataTable.on('click', '.remove', function () {
+      modal.showDialog({
+        title: 'Eliminar',
+        text: 'Esta segudo que desea eliminar el cliente?',
+        positive: {
+          title: 'Ok',
+          // Delete client if onClick
+          onClick: (ev) => {
+            let $tr = $(this).closest('tr')
+            let data = dataTable.row($tr).data()
+            let ci = data[0]
+            clientDelete(ci)
+            dataTable.row($tr).remove().draw()
+          }
+        },
+        // Not cancel
+        negative: {
+          title: 'Cancelar'
+        },
+        cancelable: false
+      })
     })
   })
+
+  async function clientDelete (ci) {
+    let uri = `/api/client/${ci}`
+    console.log(uri)
+    try {
+      let response = await fetch(uri, {method: 'delete'}).then(res => res.json())
+      console.log(response)
+      modal.showDialog({
+        title: 'Eliminado',
+        text: 'Cliente eliminado',
+        positive: {
+          title: 'Ok'
+        }
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return yo`
   <div class = 'mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col'>
     <table id="listClients" class="mdl-data-table mdl-cell mdl-cell--12-col mdl-data-table--selectable" cellspacing="0">
