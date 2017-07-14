@@ -73,6 +73,14 @@ module.exports = (product) => {
       resetForm()
     } catch (error) {
       console.log(error)
+      modal.hideLoading()
+      modal.showDialog({
+        title: 'Oh Oh!',
+        text: 'No se ha podido guardar',
+        positive: {
+          title: 'Ok'
+        }
+      })
     }
   }
 

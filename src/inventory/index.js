@@ -6,6 +6,7 @@ require('../lib/dataTables.material.min')(window, $)
 const form = require('./components/form')
 const table = require('./components/table')
 const template = require('./template')
+const modal = require('../lib/mdl-jquery-modal-dialog.js')
 
 page('/inventario', () => {
   let main = document.querySelector('main')
@@ -45,6 +46,13 @@ async function loadProduct (ctx, next) {
     next()
   } catch (error) {
     console.log(error)
+    modal.showDialog({
+      title: 'Oh Oh!',
+      text: 'No se ha podido el producto',
+      positive: {
+        title: 'Ok'
+      }
+    })
   }
 }
 
@@ -71,5 +79,12 @@ async function loadProducts (ctx, next) {
     next()
   } catch (error) {
     console.log(error)
+    modal.showDialog({
+      title: 'Oh Oh!',
+      text: 'No se han podido cargar los productos',
+      positive: {
+        title: 'Ok'
+      }
+    })
   }
 }
