@@ -62,7 +62,7 @@ module.exports = (dashData) => {
         <tr>
           <th>Código</th>
           <th>Producto</th>
-          <th>Estado</th>
+          <th>Cantidad</th>
           <th>Agregado</th>
           <th>Precio</th>
           <th class="disabled-sorting">Actions</th>
@@ -72,7 +72,7 @@ module.exports = (dashData) => {
         <tr>
           <th>Código</th>
           <th>Producto</th>
-          <th>Estado</th>
+          <th>Cantidad</th>
           <th>Agregado</th>
           <th>Precio</th>
           <th class="disabled-sorting">Actions</th>

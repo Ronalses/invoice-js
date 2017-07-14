@@ -15,14 +15,6 @@
             "price": "1222",
             "quantity": 2,
             "date": "Fri Jul 14 2017 09:04:15 GMT-0400 (-04)"
-        },
-        {
-            "code": "45664",
-            "name": "test",
-            "price": "599",
-            "quantity": 4,
-            "date": "Fri Jul 14 2017 09:34:41 GMT-0400 (-04)",
-            "state": true
         }
     ]
 }

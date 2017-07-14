@@ -58,7 +58,7 @@ async function loadProducts (ctx, next) {
       let productProcess = [
         product.code,
         product.name,
-        product.state,
+        product.quantity,
         date,
         product.price,
         `<button class='mdl-button mdl-button--icon like'><i class='material-icons' style='color:#46b8da'>dvr</i></button>
