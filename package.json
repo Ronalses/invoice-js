@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://Ronalses@gitlab.com/Ronalses/darse.git"
+    "url": "git+https://github.com/Ronalses/invoice-js.git"
   },
   "keywords": [
     "Facturacion",
@@ -22,9 +22,9 @@
   "author": "ronalses",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/Ronalses/darse/issues"
+    "url": "https://github.com/Ronalses/invoice-js/issues"
   },
-  "homepage": "https://gitlab.com/Ronalses/darse#README",
+  "homepage": "https://github.com/Ronalses/invoice-js#README",
   "standard": {
     "globals": [
       "fetch",
