@@ -30,6 +30,15 @@ gulp.task('build', () => {
   return compile()
 })
 
-gulp.task('watch', () => compile(true))
+gulp.task('styles', () => {
+  gulp
+    .src('styles/*')
+    .pipe(gulp.dest('public'))
+})
 
-gulp.task('default', ['styles', 'assets', 'build'])
+// gulp.task('default', ['styles', 'build'])
+
+gulp.task('watch', () => {
+  gulp.watch('styles/*.css', ['styles'])
+  compile(true)
+})
