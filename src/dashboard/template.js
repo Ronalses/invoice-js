@@ -13,7 +13,7 @@ module.exports = (dashData) => {
                 ${chart(dashData.cancellations)}
             </div>
             <div class="mdl-cell mdl-cell--12-col mdl-grid">
-                ${card(dashData.nodes)}
+                ${card(dashData.products)}
                 ${card(dashData.paymentsIssued)}
                 ${card(dashData.newClients)}
                 ${card(dashData.issuedInvoices)}

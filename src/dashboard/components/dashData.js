@@ -23,8 +23,8 @@ module.exports = {
     class: 'cancellationsChart',
     percent: 25
   },
-  nodes: {
-    title: 'Nodos Activos',
+  products: {
+    title: 'Productos Agregados',
     total: 25,
     icon: 'storage',
     color: '#f1c40f'

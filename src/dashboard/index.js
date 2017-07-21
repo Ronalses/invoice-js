@@ -39,7 +39,7 @@ async function loadData (ctx, next) {
     dashData.clientSupended.percent = data.clientSupended
     dashData.cancellations.percent = data.cancellations
     // Cards
-    dashData.nodes.total = data.nodes
+    dashData.products.total = data.products
     dashData.issuedInvoices.total = data.issuedInvoices
     dashData.newClients.total = data.newClients
     dashData.paymentsIssued.total = data.paymentsIssued
