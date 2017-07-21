@@ -1,2 +1,9 @@
 ## Sistema de Facturacion
-Sitema de facturacion hecho solo con javascript con browserify y nodejs
+Esto es un Test de tecnologias, para la creacion de una aplicacion SPA(singlePage)
+  -Express
+  -PageJs
+  -YoyoJs
+  -Pug
+  -MDL
+  -JQUERY
+  -GULP
